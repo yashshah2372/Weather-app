@@ -4,8 +4,9 @@ const BASE_URL="http://api.openweathermap.org/data/2.5/forecast"
 const getWeather=async(city)=>{
     const http=new slhttp();
     const url=`${BASE_URL}?q=${city}&units=metric&appid=${API_Key}`;
+    console.log(http.get(url));
     try{
-        const res=await HTMLTemplateElement.get(url);
+        const res=await http.get(url);
 
         return {
             state:'success',
@@ -19,4 +20,6 @@ const getWeather=async(city)=>{
     }
 }
 
-//getWeather("Goa");
+// getWeather("Goa")
+// .then(weatherInfo=>console.log(weatherInfo))
+// .catch(()=>console.log("Error"));
